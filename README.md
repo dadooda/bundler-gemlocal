@@ -15,7 +15,6 @@ Setup
 
   ```sh
   $ cd
-  $ wget abcd 
   $ curl https://raw.githubusercontent.com/dadooda/bundler-gemlocal/master/bundler-gemlocal.sh -O
   ```
 
