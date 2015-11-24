@@ -47,23 +47,23 @@ $ bx rails console
 etc.
 ```
 
-Project configuration example
------------------------------
+Project setup example
+---------------------
 
-* `.gitignore`:
+1. Edit `.gitignore`:
 
   ```
   /Gemlocal
   /Gemlocal.lock 
   ```
   
-* `config/boot.rb` (or other file which initializes Bundler in your project):
+2. Edit `config/boot.rb` or the file which initializes Bundler in your project:
 
   ```
   ENV["BUNDLE_GEMFILE"] ||= File.exists?(fn = File.expand_path("../../Gemlocal", __FILE__)) ? fn : File.expand_path("../../Gemfile", __FILE__)
   ```
 
-* `Gemlocal`:
+3. Edit `Gemlocal`:
 
   ```
   # Source the main Gemfile.
@@ -78,6 +78,15 @@ Project configuration example
     # etc.
   end
   ```
+
+4. Install the local bundle for the first time:
+
+  ```sh
+  $ cp Gemfile.lock Gemlocal.lock
+  $ b install
+  ```
+
+5. **All done!** From now on, keep editing both `Gemfile` and `Gemlocal` as you like. Then do a `b install` and it'll sort everything out for you.
 
 Why not `Gemfile.local`?
 ------------------------
