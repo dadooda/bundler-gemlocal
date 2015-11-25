@@ -6,7 +6,7 @@ Local Gemfile solution that works
 Overview
 --------
 
-By using `bundler-gemlocal` developers can have their own custom Gemfile (called `Gemlocal` by default). The solution is easy to use and ensures no issues with team-wide `Gemfile.lock`.
+By using `bundler-gemlocal` developers can have their own custom Gemfile, called `Gemlocal` by default, in addition to team-wide `Gemfile`. The solution is easy to use and ensures no issues with `Gemfile.lock`.
 
 Setup
 -----
