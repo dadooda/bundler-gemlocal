@@ -50,20 +50,26 @@ etc.
 Project setup example
 ---------------------
 
-1. Edit `.gitignore`:
+1. Cd to your project directory:
+
+  ```sh
+  $ cd /path/to/project
+  ```
+
+2. Edit `.gitignore`:
 
   ```
   /Gemlocal
   /Gemlocal.lock 
   ```
-  
-2. Edit `config/boot.rb` or the file which initializes Bundler in your project:
+
+3. Edit `config/boot.rb` or the file which initializes Bundler in your project:
 
   ```
   ENV["BUNDLE_GEMFILE"] ||= File.exists?(fn = File.expand_path("../../Gemlocal", __FILE__)) ? fn : File.expand_path("../../Gemfile", __FILE__)
   ```
 
-3. Edit `Gemlocal`:
+4. Edit `Gemlocal`:
 
   ```
   # Source the main Gemfile.
@@ -79,14 +85,21 @@ Project setup example
   end
   ```
 
-4. Install the local bundle for the first time:
+5. Install the local bundle for the first time:
 
   ```sh
   $ cp Gemfile.lock Gemlocal.lock
   $ b install
   ```
 
-5. **All done!** From now on, keep editing both `Gemfile` and `Gemlocal` as you like. Then do a `b install` and it'll sort everything out for you.
+6. Add `Gemlocal.example`:
+
+  ```sh
+  $ curl https://raw.githubusercontent.com/dadooda/bundler-gemlocal/master/Gemlocal.example -O
+  ```
+
+7. **All done!** From now on, keep editing both `Gemfile` and `Gemlocal` as you like. Then do a `b install` and it'll sort everything out for you.
+
 
 Why not `Gemfile.local`?
 ------------------------
