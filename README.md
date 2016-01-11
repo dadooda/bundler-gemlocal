@@ -88,7 +88,6 @@ Project setup example
 5. Install the local bundle for the first time:
 
   ```sh
-  $ cp Gemfile.lock Gemlocal.lock
   $ b install
   ```
 
