@@ -17,7 +17,6 @@ eval_gemfile File.expand_path("../Gemfile", __FILE__)
 
 group :development do
   # EXAMPLE: Developer's custom console enhancements.
-  gem "irb_hacks"
   gem "ori"
   gem "wirb"
   # etc.
