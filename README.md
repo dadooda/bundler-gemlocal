@@ -133,4 +133,4 @@ Cheers!
 
 Feedback of any kind is highly appreciated.
 
-&mdash; Alex Fortuna, &copy; 2015
+&mdash; Alex Fortuna, &copy; 2015-2016
