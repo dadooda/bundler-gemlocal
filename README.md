@@ -123,7 +123,7 @@ Why not `Gemfile.local`?
     Gemfile.lock          # o
     ```
 
-  > Legend: (`o`: in the repo, `-`: not in the repo).
+    > Legend: (`o`: in the repo, `-`: not in the repo).
 
 2. Because "Gemlocal" is **both** a term and a filename, just like "Gemfile". It's more documentation-friendly.
 3. Because the blogs are full of half-working `Gemfile.local` recipes which will cause you nothing but pain. Find this page by the word "Gemlocal" and stay trouble-free!
