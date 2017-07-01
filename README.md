@@ -113,7 +113,7 @@ Why not `Gemfile.local`?
     Gemlocal.lock     # -
     ```
 
-  more than this:
+    more than this:
 
     ```
     $ ls -1 Gem*
