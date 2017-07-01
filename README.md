@@ -13,23 +13,23 @@ Setup
 
 1. Download `bundler-gemlocal.sh` into your home directory:
 
-  ```sh
-  $ cd
-  $ curl https://raw.githubusercontent.com/dadooda/bundler-gemlocal/master/bundler-gemlocal.sh -O
-  ```
+    ```sh
+    $ cd
+    $ curl https://raw.githubusercontent.com/dadooda/bundler-gemlocal/master/bundler-gemlocal.sh -O
+    ```
 
 2. Edit your user's shell startup files to source `bundler-gemlocal.sh`. I recommend `.bashrc`. If you don't have one, edit `.profile`:
 
-  ```sh
-  $ echo -e "\n. bundler-gemlocal.sh" >> .bashrc
-  ```
+    ```sh
+    $ echo -e "\n. bundler-gemlocal.sh" >> .bashrc
+    ```
 
 3. Reload your shell (Mac users: open new Terminal window). Then check that `b` function is available:
 
-  ```sh
-  $ type -t b
-  function
-  ```
+    ```sh
+    $ type -t b
+    function
+    ```
 
 Usage
 -----
@@ -52,50 +52,50 @@ Project setup example
 
 1. Cd to your project directory:
 
-  ```sh
-  $ cd /path/to/project
-  ```
+    ```sh
+    $ cd /path/to/project
+    ```
 
 2. Edit `.gitignore`:
 
-  ```
-  /Gemlocal
-  /Gemlocal.lock 
-  ```
+    ```
+    /Gemlocal
+    /Gemlocal.lock 
+    ```
 
 3. Edit `config/boot.rb` or the file which initializes Bundler in your project:
 
-  ```
-  ENV["BUNDLE_GEMFILE"] ||= File.exists?(fn = File.expand_path("../../Gemlocal", __FILE__)) ? fn : File.expand_path("../../Gemfile", __FILE__)
-  ```
+    ```
+    ENV["BUNDLE_GEMFILE"] ||= File.exists?(fn = File.expand_path("../../Gemlocal", __FILE__)) ? fn : File.expand_path("../../Gemfile", __FILE__)
+    ```
 
 4. Edit `Gemlocal`:
 
-  ```
-  # Source the main Gemfile.
-  eval_gemfile File.expand_path("../Gemfile", __FILE__)
+    ```
+    # Source the main Gemfile.
+    eval_gemfile File.expand_path("../Gemfile", __FILE__)
 
-  group :development do
-    # Console enhancements etc.
-    gem "irb_hacks"
-    gem "ori"
-    gem "rdoc"
-    gem "wirb"
-    # etc.
-  end
-  ```
+    group :development do
+      # Console enhancements etc.
+      gem "irb_hacks"
+      gem "ori"
+      gem "rdoc"
+      gem "wirb"
+      # etc.
+    end
+    ```
 
 5. Install the local bundle for the first time:
 
-  ```sh
-  $ b install
-  ```
+    ```sh
+    $ b install
+    ```
 
 6. Add `Gemlocal.example`:
 
-  ```sh
-  $ curl https://raw.githubusercontent.com/dadooda/bundler-gemlocal/master/Gemlocal.example -O
-  ```
+    ```sh
+    $ curl https://raw.githubusercontent.com/dadooda/bundler-gemlocal/master/Gemlocal.example -O
+    ```
 
 7. **All done!** From now on, keep editing both `Gemfile` and `Gemlocal` as you like. Then do a `b install` and it'll sort everything out for you.
 
@@ -105,23 +105,23 @@ Why not `Gemfile.local`?
 
 1. Because I like this:
 
-  ```
-  $ ls -1 Gem*
-  Gemfile           # o
-  Gemfile.lock      # o
-  Gemlocal          # -
-  Gemlocal.lock     # -
-  ```
+    ```
+    $ ls -1 Gem*
+    Gemfile           # o
+    Gemfile.lock      # o
+    Gemlocal          # -
+    Gemlocal.lock     # -
+    ```
 
   more than this:
 
-  ```
-  $ ls -1 Gem*
-  Gemfile               # o
-  Gemfile.local         # -
-  Gemfile.local.lock    # -
-  Gemfile.lock          # o
-  ```
+    ```
+    $ ls -1 Gem*
+    Gemfile               # o
+    Gemfile.local         # -
+    Gemfile.local.lock    # -
+    Gemfile.lock          # o
+    ```
 
   > Legend: (`o`: in the repo, `-`: not in the repo).
 
@@ -133,4 +133,4 @@ Cheers!
 
 Feedback of any kind is highly appreciated.
 
-&mdash; Alex Fortuna, &copy; 2015-2016
+&mdash; Alex Fortuna, &copy; 2015-2017
