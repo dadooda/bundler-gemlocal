@@ -5,7 +5,7 @@
 # See https:/github.com/dadooda/bundler-gemlocal for details.
 #
 
-# Search for '# CONFIG' if you want to configure/customize this script.
+# Customizable points are marked '# CONFIG'.
 
 # A Gemlocal-aware alias to `bundle`.
 # CONFIG: You can rename this.
@@ -65,6 +65,10 @@ b() {
   fi
 }
 
-# A Gemlocal-aware alias to `bundle exec`.
 # CONFIG: You can rename this.
-alias bx="b exec"
+bx() {
+  b exec "$@"
+}
+
+# Export commands to subshells and scripts. Bash-specific.
+export -f b bx
