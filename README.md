@@ -60,18 +60,20 @@ Project setup example
 
     ```
     /Gemlocal
-    /Gemlocal.lock 
+    /Gemlocal.lock
     ```
 
 3. Edit `config/boot.rb` or the file which initializes Bundler in your project:
 
-    ```
+    ```ruby
     ENV["BUNDLE_GEMFILE"] ||= File.exists?(fn = File.expand_path("../../Gemlocal", __FILE__)) ? fn : File.expand_path("../../Gemfile", __FILE__)
     ```
 
+    > Ruby 2.0+ users may prefer to use `File.expand_path("../Gemlocal", __dir__)` which looks a little less cryptic.
+
 4. Edit `Gemlocal`:
 
-    ```
+    ```ruby
     # Source the main Gemfile.
     eval_gemfile File.expand_path("../Gemfile", __FILE__)
 
@@ -105,7 +107,7 @@ Why not `Gemfile.local`?
 
 1. Because I like this:
 
-    ```
+    ```sh
     $ ls -1 Gem*
     Gemfile           # o
     Gemfile.lock      # o
@@ -115,7 +117,7 @@ Why not `Gemfile.local`?
 
     more than this:
 
-    ```
+    ```sh
     $ ls -1 Gem*
     Gemfile               # o
     Gemfile.local         # -

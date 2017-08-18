@@ -5,9 +5,8 @@
 # USAGE:
 #
 # 1. Set up `bundler-gemlocal` and configure your project (see https://github.com/dadooda/bundler-gemlocal#setup).
-# 2. Copy this file to `Gemlocal`.
-# 3. Copy `Gemfile.lock` to `Gemlocal.lock`.
-# 4. Now keep editing both `Gemfile` and `Gemlocal`, then do a `b install`.
+# 2. Copy this file to `Gemlocal`, edit to your preference.
+# 3. Upon changes to `Gemfile` or `Gemlocal` do a `b install`.
 #
 # Good luck!
 #
@@ -16,7 +15,7 @@
 eval_gemfile File.expand_path("../Gemfile", __FILE__)
 
 group :development do
-  # EXAMPLE: Developer's custom console enhancements.
+  # EXAMPLE: Custom console enhancements.
   gem "ori"
   gem "wirb"
   # etc.
