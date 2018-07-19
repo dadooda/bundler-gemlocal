@@ -7,17 +7,22 @@
 
 # Customizable points are marked '# CONFIG'.
 
-# A Gemlocal-aware alias to `bundle`.
+# Gemlocal-aware alias to `bundle`.
 # CONFIG: You can rename this.
-b() {
+b()
+{
+  # Save `set` state. `eval "$SS"` restores it to original.
+  local SS=`shopt -op xtrace`; set +x; local RES
+
   # The filename for a Gemlocal.
   # CONFIG: You can rename this.
   local C_GEMLOCAL="Gemlocal"
 
   # If `BUNDLE_GEMFILE` is set, just run Bundler.
   if [ -n "$BUNDLE_GEMFILE" ]; then
-    bundle "$@"
-    return $?
+    bundle "$@"; RES=$?
+    eval "$SS"
+    return $RES
   fi
 
   # Search for a Gemlocal and/or a Gemfile up the tree.
@@ -38,6 +43,7 @@ b() {
 
   if [ -n "$FOUND_GEMLOCAL" -a -z "$FOUND_GEMFILE" ]; then
     echo "Error: No 'Gemfile' found next to '$FOUND_GEMLOCAL'" >&2
+    eval "$SS"
     return 1
   fi
 
@@ -63,11 +69,19 @@ b() {
     # No Gemlocal, just run Bundler.
     bundle "$@"
   fi
+
+  RES=$?; eval "$SS"; return $RES
 }
 
+# Gemlocal-aware alias to `bundle exec`.
 # CONFIG: You can rename this.
-bx() {
-  b exec "$@"
+bx()
+{
+  local SS=`shopt -op xtrace`; set +x; local RES
+
+  b exec "$@"; RES=$?
+
+  eval "$SS"; return $RES
 }
 
 # Export commands to subshells and scripts. Bash-specific.
